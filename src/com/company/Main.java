@@ -1,7 +1,7 @@
 package com.company;
 
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,77 +9,62 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
 
-        ArrayList<String> hrQuestions = new ArrayList();
-
-        hrQuestions.add("Enter employee's first name:");
-        hrQuestions.add("Enter employee's last name:");
-        hrQuestions.add("Enter employee's ID #:");
-        hrQuestions.add("Enter employee's annual salary:");
-
-        String[] userResponses = {"firstName = sc.nextLine()", "lastName = sc.nextLine()", "employeeNum = sc.nextLine()", "annualSalary = sc.nextLine()"};
-
-        System.out.println("Hello.  Welcome to HR Salary Calculator. Enter employee information to calculator annual salary broken out by monthly, bi-monthly and every two weeks.");
-        Scanner sc = new Scanner(System.in);
+        //HR Team User
+        //X - Greet User
+        //? - Tell them how it works - Use for end user
+        //X - User enters info
+        //X - - First Name
+        //X - - Last Name
+        //X - - Employee Number
+        //X - - Annual Salary
+        //X - Salary Breakdown
+        //X - - Monthly - paid 12 times
+        //X - - Twice a month - paid 24 times
+        //X - - Every two weeks - paid 26 times
+        //X - Ask user if another employee?
+        //X - - If yes, repeat
+        //X - - If no, close
 
         Boolean ask = true;
+        Scanner sc = new Scanner(System.in);
 
-        while (ask) {
-            System.out.println("Do you want to enter an employee's information?");
-            String userAnswer = sc.nextLine();
-            if (userAnswer.equals("Yes")) {
+        while(ask) {
+            System.out.println("Welcome to thee HR application.");
+            System.out.println("***PLACEHOLDER - HOW IT WORKS***");
 
+            String[] questions = {
+                    "Please enter Employee First Name:",
+                    "Please enter Employee Last Name:",
+                    "Please enter Employee Number:",
+                    "Please enter Employee Salary:"
+            };
+
+            List<String> answers = new ArrayList<>();
+
+            for (int i = 0; i < questions.length; i++) {
+                System.out.println(questions[i]);
+                String userEntry = sc.nextLine();
+                answers.add(userEntry);
+            }
+
+            String salaryString = answers.get(3);
+            int salary = Integer.parseInt(salaryString);
+
+            int monthlySalary = salary / 12;
+            int twiceMonthSalary = salary / 24;
+            int everyTwoWeeksSalary = salary / 26;
+
+            System.out.println("Monthly Salary: " + monthlySalary);
+            System.out.println("Twice a Month Salary: " + twiceMonthSalary);
+            System.out.println("Paid every two weeks Salary: " + everyTwoWeeksSalary);
+
+            System.out.println("Do you want to enter another employee?");
+            String responseFromUser = sc.nextLine();
+            if (responseFromUser.equalsIgnoreCase("yes") ||
+                    responseFromUser.equalsIgnoreCase("y")) {
                 ask = true;
-
-                System.out.println(hrQuestions[0]);
-                String annualSalary = sc.nextLine();
-
-                int calcSalary = Integer.parseInt(annualSalary);
-
-                System.out.println("Monthly Salary: $" + calcSalary / 12);
-                System.out.println("Bi-Monthly Salary: $" + calcSalary / 24);
-                System.out.println("Salary every two weeks: $" + calcSalary / 26);
             } else {
                 ask = false;
-                System.out.println("Thank you for using the HR Salary Calculator");
-
-
-//        System.out.println("Hello.  Welcome to HR Salary Calculator. Enter employee information to calculator annual salary broken out by monthly, bi-monthly and every two weeks.");
-//        Scanner sc = new Scanner(System.in);
-//
-//        Boolean ask = true;
-//        while (ask) {
-//            System.out.println("Do you want to enter an employee's information?");
-//            String userAnswer = sc.nextLine();
-//            if (userAnswer.equals("Yes")) {
-//
-//                ask = true;
-//
-//                System.out.println("Enter employee's first name:");
-//                String firstName = sc.nextLine();
-//
-//                System.out.println("Enter employee's last name:");
-//                String lastName = sc.nextLine();
-//
-//                System.out.println("Enter employee's ID #:");
-//                String employeeNum = sc.nextLine();
-//
-//                System.out.println("Enter employee's annual salary:");
-//                String annualSalary = sc.nextLine();
-//
-//                int calcSalary = Integer.parseInt(annualSalary);
-//
-//                System.out.println("Monthly Salary: $" + calcSalary / 12);
-//                System.out.println("Bi-Monthly Salary: $" + calcSalary / 24);
-//                System.out.println("Salary every two weeks: $" + calcSalary / 26);
-//            } else {
-//                ask = false;
-//                System.out.println("Thank you for using the HR Salary Calculator");
-
-
-//            }
-//
-//        }
-//    }
             }
         }
     }
