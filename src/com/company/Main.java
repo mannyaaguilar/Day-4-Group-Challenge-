@@ -61,11 +61,11 @@ public class Main {
             System.out.println("Monthly Salary: " + monthlySalary);
             System.out.println("Twice a Month Salary: " + twiceMonthSalary);
             System.out.println("Paid every two weeks Salary: " + everyTwoWeeksSalary);
-
+            System.out.println(" ");
             Employee employee1 = new Employee(firstName, lastName, id, salary, monthlySalary, twiceMonthSalary, everyTwoWeeksSalary);
 
-            System.out.println("(Summary - Employee Name:" + employee1.firstName + " " + employee1.lastName + "," + " Employee ID:" + employee1.id + "," + " " + "Annual Salary:" + employee1.salary + "," +
-                   " " + "Monthly Salary:" + employee1.monthlySalary + "," + " " + "Twice a Month Salary:" + employee1.twiceAMonthSalary + "," + " " + "Every Two Weeks Salary:" + employee1.everyTwoWeeksSalary + ")");
+            System.out.println("(Summary - Employee Name:" + employee1.firstName + " " + employee1.lastName + "," + " Employee ID:" + employee1.id + "," + " " + "Annual Salary: $" + employee1.salary + "," +
+                   " " + "Monthly Salary: $" + employee1.monthlySalary + "," + " " + "Twice a Month Salary: $" + employee1.twiceAMonthSalary + "," + " " + "Every Two Weeks Salary: $" + employee1.everyTwoWeeksSalary + ")");
             System.out.println("Do you want to enter another employee?");
             String responseFromUser = sc.nextLine();
             if (responseFromUser.equalsIgnoreCase("yes") ||
