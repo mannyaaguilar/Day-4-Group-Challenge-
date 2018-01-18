@@ -28,36 +28,44 @@ public class Main {
         Boolean ask = true;
         Scanner sc = new Scanner(System.in);
 
-        while(ask) {
-            System.out.println("Welcome to thee HR application.");
-            System.out.println("***PLACEHOLDER - HOW IT WORKS***");
 
-            String[] questions = {
-                    "Please enter Employee First Name:",
-                    "Please enter Employee Last Name:",
-                    "Please enter Employee Number:",
-                    "Please enter Employee Salary:"
-            };
+            System.out.println("Welcome to the HR Salary Calculator!");
+            System.out.println("This application will calculate an employee's monthly, Bi-monthly and Every two weeks Salary.");
+            System.out.println("");
+            while (ask){
+            System.out.println("Please enter Employee First Name:");
+            String firstName = sc.nextLine();
+            System.out.println("Please enter Employee Last Name:");
+            String lastName = sc.nextLine();
+            System.out.println("Please enter Employee ID Number:");
+            String id = sc.nextLine();
+            System.out.println("Please enter Employee Annual Salary:");
 
-            List<String> answers = new ArrayList<>();
 
-            for (int i = 0; i < questions.length; i++) {
-                System.out.println(questions[i]);
-                String userEntry = sc.nextLine();
-                answers.add(userEntry);
-            }
+//            List<String> answers = new ArrayList<>();
+//
+//            for (int i = 0; i < questions.length; i++) {
+//                System.out.println(questions[i]);
+//                String userEntry = sc.nextLine();
+//                answers.add(userEntry);
+//
+//            }
 
-            String salaryString = answers.get(3);
-            int salary = Integer.parseInt(salaryString);
+            String salaryString = sc.nextLine();
+            double salary = Integer.parseInt(salaryString);
 
-            int monthlySalary = salary / 12;
-            int twiceMonthSalary = salary / 24;
-            int everyTwoWeeksSalary = salary / 26;
+            double monthlySalary = salary / 12;
+            double twiceMonthSalary = salary / 24;
+            double everyTwoWeeksSalary = salary / 26;
 
             System.out.println("Monthly Salary: " + monthlySalary);
             System.out.println("Twice a Month Salary: " + twiceMonthSalary);
             System.out.println("Paid every two weeks Salary: " + everyTwoWeeksSalary);
 
+            Employee employee1 = new Employee(firstName, lastName, id, salary, monthlySalary, twiceMonthSalary, everyTwoWeeksSalary);
+
+            System.out.println("(Summary - Employee Name:" + employee1.firstName + " " + employee1.lastName + "," + " Employee ID:" + employee1.id + "," + " " + "Annual Salary:" + employee1.salary + "," +
+                   " " + "Monthly Salary:" + employee1.monthlySalary + "," + " " + "Twice a Month Salary:" + employee1.twiceAMonthSalary + "," + " " + "Every Two Weeks Salary:" + employee1.everyTwoWeeksSalary + ")");
             System.out.println("Do you want to enter another employee?");
             String responseFromUser = sc.nextLine();
             if (responseFromUser.equalsIgnoreCase("yes") ||
@@ -66,6 +74,9 @@ public class Main {
             } else {
                 ask = false;
             }
-        }
+
+
+
+
     }
-}
+}}
